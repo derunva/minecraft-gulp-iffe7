@@ -1,0 +1,32 @@
+.header
+  .header__top
+    .wrapper
+      div Подключайся и играй на наших серверах!
+      .icon-menu
+        ul
+          li
+            a(href="#")
+              i.icon.icon-fb
+          li
+            a(href="#")
+              i.icon.icon-vk
+          li
+            a(href="#")
+              i.icon.icon-uk-flag
+  .wrapper
+    |header  
+  .header__menu
+    .wrapper
+      -
+        var menu =[
+          'Главная',
+          'Об игре',
+          'Список серверов',
+          'Наша команда',
+          'донат'
+        ];
+      ul
+        each item in menu
+          -;
+          li
+            a(href="#")=item
