@@ -5,7 +5,10 @@ const autoprefixer = require('gulp-autoprefixer');
 var server = require('gulp-server-livereload');
 var cleancss = require('gulp-cleancss');
 const changed = require('gulp-changed');
+var browserify = require('gulp-browserify');
+var sourcemaps = require('gulp-sourcemaps');
 var debug = require('gulp-debug')
+let uglify = require('gulp-uglify-es').default;
 var plumberNotifier = require('gulp-plumber-notifier');
 gulp.task('imgCopy', function(){
   return new Promise(function(resolve, reject) {
@@ -28,7 +31,12 @@ gulp.task('webserver', function() {
 gulp.task('jsBuild', function(){
   return new Promise(function(resolve, reject) {
     gulp.src('./app/js/*.js')
+      .pipe(plumberNotifier())
       .pipe(changed('./dist/js/'))
+      .pipe(browserify())
+      .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest('./dist/js/'))
     resolve();
   });

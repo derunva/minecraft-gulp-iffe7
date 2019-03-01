@@ -4,6 +4,28 @@ html(lang="uk")
     include includes/head.pug
   body
     include includes/header.pug
+    -
+      var menu = [
+        {
+          title: 'asdsa'
+        },
+        {
+          title: 'asdsa',
+          sublist : [
+            {
+              title: 'asdsa'
+            },
+            {
+              title: 'asdsa'
+            }
+          ]
+        },
+        {
+          title: 'asdsa'
+        }
+      ]
+    nav
+      +listMenu(menu)
     h1 Hello!!!
       a(href="#") test 1
     include includes/footer.pug

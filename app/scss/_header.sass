@@ -1,5 +1,45 @@
 .header
   &__top
     background: $main-color
+    +propToRem(font-size, 16)
+    color: #fff
+    padding: $v-step/2 0
+    text-align: center
+    .wrapper
+      display: flex
+      justify-content: center
+      flex-wrap: wrap
+      align-items: center
+      +breakpoint(phablet)
+        text-align: left
+        justify-content: space-between
   &__menu
+    a
+      display: block
+      +propToRem(font-size, 16)
+      color: #fff
+      text-decoration: none
+      padding: $v-step/4*3
+      font-weight: bold
+      text-align: center
+      &:first-letter
+        text-transform: uppercase
+      &:hover
+        background: rgba(255,255,255, .15)
+    ul
+      display: flex
+      flex-wrap: wrap
+      list-style: none
+      border-left: 1px solid lighten(saturate($main-color, 27.77), 20.39)
+      border-right: 1px solid darken(saturate($main-color, 4.17), 12.16)
+    li
+      flex: 1 1 auto
+      border-right: 1px solid lighten(saturate($main-color, 27.77), 20.39)
+      border-left: 1px solid darken(saturate($main-color, 4.17), 12.16)
+      &:nth-child(3)
+        order: 5
+      &:nth-child(4)
+        order: 4
+      &:nth-child(5)
+        order: 3
     background: linear-gradient($main-color-lighter, $main-color)
