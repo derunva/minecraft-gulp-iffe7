@@ -5,3 +5,10 @@ mixin listMenu(arr)
         a(href="#")=item.title
         -if(item.sublist)
           +listMenu(item.sublist)
+mixin article(item)
+  .article
+    .article__top
+      .article__date=item.date
+      .article__text=item.text
+    .article__img
+      img(src="img/"+item.img alt="")
